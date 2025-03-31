@@ -13,7 +13,7 @@ jobs:
       - name: Sync repo
         run: |
           # set dir as safe
-            git -C config --global --add safe.directory /front
+            git config --global --add safe.directory /front
           # Fetch repo
             docker exec gitea_runner \
               git -C /front fetch origin
