@@ -5,7 +5,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest 
     container:
-      image: ubuntu:latest
+      # image: ubuntu:latest
       volumes:
         - /front:/front
     steps:
