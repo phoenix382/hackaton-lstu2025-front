@@ -5,13 +5,14 @@ jobs:
   deploy:
     runs-on: ubuntu-latest 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Sync repo
+      - name: Clone directly to mounted path
         run: |
-          rsync -a --delete "$GITHUB_WORKSPACE/" /front/
-          git -C /front config --global --add safe.directory /front
+          cd /front
+          git init
+          git remote add origin "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git"
+          git fetch --prune
+          git reset --hard "$GITHUB_SHA"
+          git config --global --add safe.directory /front
 
       - name: Restart front
         run: |
