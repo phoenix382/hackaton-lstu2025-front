@@ -4,6 +4,6 @@ import TheWelcome from '../components/TheWelcome.vue'
 
 <template>
   <main>
-    <Hello World! Bonjour!>
+    123
   </main>
 </template>
