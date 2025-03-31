@@ -7,7 +7,7 @@ jobs:
     container:
       image: ubuntu:latest
       volumes:
-        - /front:${GITHUB_WORKSPACE}/front
+        - /front:${GITHUB_WORKSPACE}/workspace/front
     steps:
       - name: Clone directly to mounted path
         run: |
