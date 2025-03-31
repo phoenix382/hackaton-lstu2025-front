@@ -11,14 +11,8 @@ jobs:
     steps:
       - name: Clone directly to mounted path
         run: |
-          cd /front
           pwd
-          echo "------------------"
-          ls -a .
-          echo "------------------"
           ls -a /front
-          echo "------------------"
-          ls -a /workspace
 
           date >> date.txt
 
