@@ -7,10 +7,12 @@ jobs:
     container:
       image: ubuntu:latest
       volumes:
-        - /front:/workspace/front
+        - /front:/front
     steps:
       - name: Clone directly to mounted path
         run: |
+          pwd
+          echo "------------------"
           ls -a .
           echo "------------------"
           ls -a /front
