@@ -8,13 +8,10 @@ jobs:
       - name: Clone directly to mounted path
         run: |
           cd /front
-          # git pull
           git init
-          git remote add origin "https://phoenix381:bd0d27e353b8c0768da500242f768ef00850f428@projects.root.sx/phoenix381/front.git"
+          git remote add origin "https://phoenix381:${{ secrets.TOKEN }}@projects.root.sx/phoenix381/front.git"
           git fetch --prune
           git checkout -t origin/main
-          # git reset --hard "$GITHUB_SHA"
-          # git config --global --add safe.directory /front
 
       - name: Restart front
         run: |
