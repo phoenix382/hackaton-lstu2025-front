@@ -10,23 +10,30 @@ jobs:
         # - /front:/front
       options: --mount type=bind,source=/front,target=/front
     steps:
-      - name: Clone directly to mounted path
+      - name: Sync repo
         run: |
-          pwd
-          ls -a /front
-          # ls -a /front/phoenix381
+          # Fetch repo
+            docker exec gitea_runner \
+              git -C /front fetch origin
+          # Execute git pull inside runner container
+            docker exec gitea_runner \
+              git -C /front reset --hard origin/main
 
-          date >> date.txt
+          # pwd
+          # ls -a /front
+          # # ls -a /front/phoenix381
 
-          # Initialize repo if not exists
-          if [ ! -d "/front/.git" ]; then
-            git -C /front init
-            git -C /front remote add origin "https://phoenix381:${{ secrets.TOKEN }}@projects.root.sx/phoenix381/front.git"
-          fi
+          # date >> date.txt
 
-          git -C /front fetch origin
-          git -C /front reset --hard origin/main
-          git -C /front clean -fd
+          # # Initialize repo if not exists
+          # if [ ! -d "/front/.git" ]; then
+          #   git -C /front init
+          #   git -C /front remote add origin "https://phoenix381:${{ secrets.TOKEN }}@projects.root.sx/phoenix381/front.git"
+          # fi
+
+          # git -C /front fetch origin
+          # git -C /front reset --hard origin/main
+          # git -C /front clean -fd
 
       - name: Restart front
         run: |
