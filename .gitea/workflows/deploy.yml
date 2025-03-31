@@ -8,11 +8,12 @@ jobs:
       - name: Clone directly to mounted path
         run: |
           cd /front
-          git init
-          git remote add origin "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git"
-          git fetch --prune
-          git reset --hard "$GITHUB_SHA"
-          git config --global --add safe.directory /front
+          git pull
+          # git init
+          # git remote add origin "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git"
+          # git fetch --prune
+          # git reset --hard "$GITHUB_SHA"
+          # git config --global --add safe.directory /front
 
       - name: Restart front
         run: |
