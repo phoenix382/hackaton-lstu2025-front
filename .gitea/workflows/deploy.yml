@@ -4,14 +4,16 @@ on: [push]  # Triggers on every git push
 jobs:
   deploy:
     runs-on: ubuntu-latest 
-    container:
+    # container:
       # image: ubuntu:latest
       # volumes:
         # - /front:/front
-      options: --mount type=bind,source=/front,target=/front
+      # options: --mount type=bind,source=/front,target=/front
     steps:
       - name: Sync repo
         run: |
+          # set dir as safe
+            git -C config --global --add safe.directory /front
           # Fetch repo
             docker exec gitea_runner \
               git -C /front fetch origin
