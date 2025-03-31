@@ -7,7 +7,7 @@ jobs:
     container:
       image: ubuntu:latest
       volumes:
-        - /front:/front
+        - /front:/workspace/phoenix381/front
     steps:
       - name: Clone directly to mounted path
         run: |
