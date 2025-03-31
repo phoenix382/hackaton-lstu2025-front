@@ -20,8 +20,8 @@ jobs:
               git -C /front pull "phoenix381:${{ secrets.TOKEN }}@projects.root.sx/phoenix381/front.git"
               # git -C /front fetch origin "https://phoenix381:${{ secrets.TOKEN }}@projects.root.sx/phoenix381/front.git"
           # Execute git pull inside runner container
-            docker exec gitea_runner \
-              git -C /front reset --hard origin/main
+            # docker exec gitea_runner \
+            #   git -C /front reset --hard origin/main
 
           # pwd
           # ls -a /front
