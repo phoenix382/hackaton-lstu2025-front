@@ -10,10 +10,7 @@ jobs:
     steps:
       - name: Clone directly to mounted path
         run: |
-          ls /front
-          # cd /front
-          # git init
-          # git remote add origin "https://phoenix381:${{ secrets.TOKEN }}@projects.root.sx/phoenix381/front.git"
+          ls -a /front
 
           # Initialize repo if not exists
           if [ ! -d "/front/.git" ]; then
@@ -21,13 +18,9 @@ jobs:
             git -C /front remote add origin "https://phoenix381:${{ secrets.TOKEN }}@projects.root.sx/phoenix381/front.git"
           fi
 
-          # Force reset to latest commit
           git -C /front fetch origin
           git -C /front reset --hard origin/main
           git -C /front clean -fd
-
-          # git fetch --prune
-          # git reset --hard 
 
       - name: Restart front
         run: |
