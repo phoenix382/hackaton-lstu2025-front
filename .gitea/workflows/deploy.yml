@@ -17,7 +17,7 @@ jobs:
               git config --global --add safe.directory /front
           # Fetch repo
             docker exec gitea_runner \
-              git -C /front pull "phoenix381:${{ secrets.TOKEN }}@projects.root.sx/phoenix381/front.git"
+              git -C /front pull "${{ secrets.TOKEN }}@projects.root.sx/phoenix381/front.git"
               # git -C /front fetch origin "https://phoenix381:${{ secrets.TOKEN }}@projects.root.sx/phoenix381/front.git"
           # Execute git pull inside runner container
             # docker exec gitea_runner \
