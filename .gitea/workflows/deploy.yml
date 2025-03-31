@@ -8,12 +8,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Stop and remove old container
+      - name: Restart front
         run: |
-          docker-compose stop fron || true  # Ignore errors if container doesn't exist
-          docker-compose rm -f front || true
-
-      - name: Rebuild and restart
-        run: |
-          # docker-compose build my-service  # Rebuild the specific service
-          docker-compose up -d --no-deps front  # Restart only this container
+          docker restart vue_app
