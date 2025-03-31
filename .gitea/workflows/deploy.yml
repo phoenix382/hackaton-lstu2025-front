@@ -7,8 +7,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          path: /front
+
+      - name: Sync repo
+        run: |
+          rsync -a --delete "$GITHUB_WORKSPACE/" /front/
+          git -C /front config --global --add safe.directory /front
 
       - name: Restart front
         run: |
