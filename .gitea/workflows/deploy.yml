@@ -6,8 +6,9 @@ jobs:
     runs-on: ubuntu-latest 
     container:
       # image: ubuntu:latest
-      volumes:
-        - /front:/front
+      # volumes:
+        # - /front:/front
+      options: --mount type=bind,source=/front,target=/front
     steps:
       - name: Clone directly to mounted path
         run: |
