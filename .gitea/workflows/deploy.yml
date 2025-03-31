@@ -13,8 +13,8 @@ jobs:
       - name: Clone directly to mounted path
         run: |
           pwd
-          # ls -a /front
-          ls -a /front/phoenix381
+          ls -a /front
+          # ls -a /front/phoenix381
 
           date >> date.txt
 
