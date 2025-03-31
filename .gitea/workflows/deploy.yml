@@ -10,10 +10,11 @@ jobs:
           cd /front
           # git pull
           git init
-          git remote add origin "https://projects.root.sx/phoenix381/front.git"
+          git remote add origin "https://phoenix381:bd0d27e353b8c0768da500242f768ef00850f428@projects.root.sx/phoenix381/front.git"
           git fetch --prune
-          git reset --hard "$GITHUB_SHA"
-          git config --global --add safe.directory /front
+          git checkout -t origin/main
+          # git reset --hard "$GITHUB_SHA"
+          # git config --global --add safe.directory /front
 
       - name: Restart front
         run: |
