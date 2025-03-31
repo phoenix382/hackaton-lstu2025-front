@@ -7,11 +7,14 @@ jobs:
     container:
       image: ubuntu:latest
       volumes:
-        - /front:${GITHUB_WORKSPACE}/workspace/front
+        - /front:/workspace/front
     steps:
       - name: Clone directly to mounted path
         run: |
           ls -a /front
+          echo "------------------"
+          ls -a /workspace
+
 
           # Initialize repo if not exists
           if [ ! -d "/front/.git" ]; then
