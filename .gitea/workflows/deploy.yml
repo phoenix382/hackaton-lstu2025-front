@@ -2,7 +2,7 @@ name: Deploy Container
 on: [push]  # Triggers on every git push
 
 jobs:
-  deploy:
+  deploy front:
     runs-on: ubuntu-latest 
     steps:
       - name: Sync repo
@@ -12,7 +12,7 @@ jobs:
               git config --global --add safe.directory /front
           # Fetch repo
             docker exec gitea_runner \
-              git -C /front pull "https://phoenix381:${{ secrets.TOKEN }}@projects.root.sx/phoenix381/front.git"
+              git -C /front pull "https://phoenix381:${{ secrets.TOKEN }}@projects.root.sx/hackaton/front.git"
       
       - name: Restart front
         run: |
