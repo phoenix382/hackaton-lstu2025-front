@@ -9,10 +9,9 @@ https://front.root.sx/
 vue3 + element plus
 
 ## Копии репозиториев
-https://github.com/phoenix382/hackaton-lstu2025-front
-https://github.com/phoenix382/hackaton-lstu2025-back
-https://github.com/phoenix382/hackaton-lstu2025-ml
-
+https://github.com/phoenix382/hackaton-lstu2025-front \
+https://github.com/phoenix382/hackaton-lstu2025-back \
+https://github.com/phoenix382/hackaton-lstu2025-ml \
 
 ## Project Setup
 
