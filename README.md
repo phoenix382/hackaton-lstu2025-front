@@ -1,29 +1,22 @@
-# front
+# Frontend repo
 
-This template should help get you started developing with Vue 3 in Vite.
+![deploy status](https://projects.root.sx/hackaton/front/actions/workflows/deploy.yml/badge.svg)
+
+https://front.root.sx/
 
 ## Recommended IDE Setup
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+vue3 + element plus
 
-## Customize configuration
+## Копии репозиториев
+https://github.com/phoenix382/hackaton-lstu2025-front
+https://github.com/phoenix382/hackaton-lstu2025-back
+https://github.com/phoenix382/hackaton-lstu2025-ml
 
-See [Vite Configuration Reference](https://vite.dev/config/).
 
 ## Project Setup
 
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
+vite:
 npm run dev
-```
 
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+Port: 5173
