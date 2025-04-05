@@ -33,6 +33,27 @@ export const useAuthStore = () => {
     api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
   };
 
+  const register = async (credentials) => {
+    try {
+      const response = await api.post('/api/register', credentials);
+      const { token } = response.data;
+
+      localStorage.setItem('jwt_token', token);
+      setAuthHeader(token);
+      state.token = token;
+      state.isAuthenticated = true;
+      state.user = jwtDecode(token);
+
+      console.warning("remove in auth.js")
+      console.log(state.user);
+      console.log(state.token);
+
+      return true;
+    } catch (error) {
+      return false;
+    }
+  }
+
   const login = async (credentials) => {
     try {
       const response = await api.post('/api/login', credentials);

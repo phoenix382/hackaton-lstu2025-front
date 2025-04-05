@@ -86,10 +86,26 @@ const rules = {
 
 const registrationForm = ref(null);
 
-const submitForm = (formName) => {
+const submitForm = async (formName) => {
   registrationForm.value.validate((valid) => {
     if (valid) {
-      ElMessage.success('Registration successful!');
+
+
+      const success = await authStore.register({
+        email: form.value.email,
+        password: form.value.password,
+      });
+
+      // console.log(form.value.username);
+      // console.log(form.value.email);
+      // console.log(form.value.password);
+
+      if (!success) {
+        ElMessage.error('Registration failed. Please try again.');
+      } else {
+        ElMessage.success('Registration successful!');
+      }
+
       // Here you can add your registration logic, e.g., sending data to the server
     } else {
       ElMessage.error('Please fill in the form correctly.');
