@@ -46,74 +46,62 @@ import { useAuthStore } from '../stores/auth';
 //     error.value = 'Login failed. Please check your credentials.';
 //   }
 // };
-import { ref } from 'vue';
+// import { ref } from 'vue';
 import { ElMessage } from 'element-plus';
 
-export default {
-  name: 'RegistrationForm',
-  setup() {
-    const form = ref({
+const form = ref({
       username: '',
       email: '',
       password: '',
       confirmPassword: ''
     });
 
-    const rules = {
-      username: [
-        { required: true, message: 'Please input username', trigger: 'blur' },
-        { min: 3, max: 15, message: 'Length should be 3 to 15', trigger: 'blur' }
-      ],
-      email: [
-        { required: true, message: 'Please input email address', trigger: 'blur' },
-        { type: 'email', message: 'Please input correct email address', trigger: ['blur', 'change'] }
-      ],
-      password: [
-        { required: true, message: 'Please input password', trigger: 'blur' },
-        { min: 6, message: 'Password should be at least 6 characters', trigger: 'blur' }
-      ],
-      confirmPassword: [
-        { required: true, message: 'Please confirm password', trigger: 'blur' },
-        {
-          validator: (rule, value, callback) => {
-            if (value !== form.value.password) {
-              callback(new Error('Passwords do not match'));
-            } else {
-              callback();
-            }
-          },
-          trigger: 'blur'
-        }
-      ]
-    };
-
-    const registrationForm = ref(null);
-
-    const submitForm = (formName) => {
-      registrationForm.value.validate((valid) => {
-        if (valid) {
-          ElMessage.success('Registration successful!');
-          // Here you can add your registration logic, e.g., sending data to the server
+const rules = {
+  username: [
+    { required: true, message: 'Please input username', trigger: 'blur' },
+    { min: 3, max: 15, message: 'Length should be 3 to 15', trigger: 'blur' }
+  ],
+  email: [
+    { required: true, message: 'Please input email address', trigger: 'blur' },
+    { type: 'email', message: 'Please input correct email address', trigger: ['blur', 'change'] }
+  ],
+  password: [
+    { required: true, message: 'Please input password', trigger: 'blur' },
+    { min: 6, message: 'Password should be at least 6 characters', trigger: 'blur' }
+  ],
+  confirmPassword: [
+    { required: true, message: 'Please confirm password', trigger: 'blur' },
+    {
+      validator: (rule, value, callback) => {
+        if (value !== form.value.password) {
+          callback(new Error('Passwords do not match'));
         } else {
-          ElMessage.error('Please fill in the form correctly.');
-          return false;
+          callback();
         }
-      });
-    };
-
-    const resetForm = (formName) => {
-      registrationForm.value.resetFields();
-    };
-
-    return {
-      form,
-      rules,
-      registrationForm,
-      submitForm,
-      resetForm
-    };
-  }
+      },
+      trigger: 'blur'
+    }
+  ]
 };
+
+const registrationForm = ref(null);
+
+const submitForm = (formName) => {
+  registrationForm.value.validate((valid) => {
+    if (valid) {
+      ElMessage.success('Registration successful!');
+      // Here you can add your registration logic, e.g., sending data to the server
+    } else {
+      ElMessage.error('Please fill in the form correctly.');
+      return false;
+    }
+  });
+};
+
+const resetForm = (formName) => {
+  registrationForm.value.resetFields();
+};
+
 </script>
 
 <style scoped>
