@@ -52,7 +52,7 @@ export const useAuthStore = () => {
     } catch (error) {
       return false;
     }
-  }
+  };
 
   const login = async (credentials) => {
     try {
@@ -84,6 +84,7 @@ export const useAuthStore = () => {
     state,
     initializeAuth,
     login,
+    register,
     logout,
     isValidToken
   };

@@ -26,6 +26,9 @@ import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { useAuthStore } from '../stores/auth';
 
+const router = useRouter();
+const authStore = useAuthStore();
+
 // const email = ref('');
 // const password = ref('');
 // const error = ref('');
@@ -87,7 +90,7 @@ const rules = {
 const registrationForm = ref(null);
 
 const submitForm = async (formName) => {
-  registrationForm.value.validate((valid) => {
+  registrationForm.value.validate(async (valid) => {
     if (valid) {
 
 
