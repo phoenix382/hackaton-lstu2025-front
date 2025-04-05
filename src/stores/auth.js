@@ -1,5 +1,6 @@
 import { reactive } from 'vue';
-import axios from 'axios';
+// import axios from 'axios';
+import api from '@/utils/axios';
 import { jwtDecode } from 'jwt-decode';
 
 const state = reactive({
@@ -29,12 +30,12 @@ export const useAuthStore = () => {
   };
 
   const setAuthHeader = (token) => {
-    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
   };
 
   const login = async (credentials) => {
     try {
-      const response = await axios.post('/api/login', credentials);
+      const response = await api.post('/api/login', credentials);
       const { token } = response.data;
       
       localStorage.setItem('jwt_token', token);
@@ -52,7 +53,7 @@ export const useAuthStore = () => {
 
   const logout = () => {
     localStorage.removeItem('jwt_token');
-    delete axios.defaults.headers.common['Authorization'];
+    delete api.defaults.headers.common['Authorization'];
     state.token = null;
     state.isAuthenticated = false;
     state.user = null;
