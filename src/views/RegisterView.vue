@@ -95,9 +95,14 @@ const submitForm = async (formName) => {
 
 
       const success = await authStore.register({
-        email: form.value.email,
-        password: form.value.password,
+        'email': form.value.email,
+        'password': form.value.password,
       });
+
+      // console.log({
+      //   'email': form.value.email,
+      //   'password': form.value.password,
+      // });
 
       // console.log(form.value.username);
       // console.log(form.value.email);

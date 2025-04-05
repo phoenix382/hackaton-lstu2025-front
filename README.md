@@ -4,6 +4,10 @@
 
 https://front.root.sx/
 
+## Макет
+
+https://www.figma.com/design/KWOBp7cXzM5jmYJSnNhbHM/hackaton?node-id=0-1&t=bbX6vSZ9eZ0vERqr-1
+
 ## Recommended IDE Setup
 
 vue3 + element plus
