@@ -12,13 +12,36 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: '/about',
-      name: 'about',
+      path: '/profile',
+      name: 'profile',
       
-      component: () => import('../views/AboutView.vue'),
+      component: () => import('../views/ProfileView.vue'),
       meta: { requiresAuth: true }
     },
+    // далее требуется заполненный профиль
+    {
+      path: '/main',
+      name: 'main',
+      
+      component: () => import('../views/MainView.vue'),
+      meta: { requiresAuth: true, requiresFilledProfile: true }
+    },
+    {
+      path: '/plans',
+      name: 'plans',
 
+      component: () => import('../views/PlansView.vue'),
+      meta: { requiresAuth: true, requiresFilledProfile: true }
+    },
+    // тут и просмотр и редактирование
+    {
+      path: '/plan/:id',
+      name: 'plan',
+
+      component: () => import('../views/PlanView.vue'),
+    },
+
+    // авторизация
     {
       path: '/login',
       name: 'login',

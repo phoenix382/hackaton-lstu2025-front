@@ -193,7 +193,7 @@ const submitForm = async (formName) => {
 }
 
 .registration-form h1 {
-  font-family: 'Tinos';
+  font-family: 'Inter';
   font-size: 36px;
   font-weight: bold;
 }
