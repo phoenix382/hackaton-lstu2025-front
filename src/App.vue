@@ -59,13 +59,21 @@
     </el-menu>
 
 
-<br>
+<!-- <br> -->
   </header>
 
-  <div class=content>
-    <RouterView />
-  </div>
+  <!-- CONTENT -->
+  <div class="page">
+    <div class="content">
+      <RouterView />
+    </div>
 
+    <div class="footer">
+      <span>
+        Хакатон ЛГТУ, 2025
+      </span>
+    </div>
+  </div>
 </template>
 
 <script setup>
@@ -229,6 +237,32 @@ body {
 
 /*@media (min-width: 1024px) */
 
+.footer {
+  display: flex;
+  width: 100%;
+/*  position: absolute;*/
+  bottom: 20px;
+  justify-content: center;
+}
+
+.footer span {
+  color: #464646;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+/*  justify-content: center;*/
+  height: 100%;
+
+  min-height: 85vh;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
 .el-menu-header {
   display: flex;

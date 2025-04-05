@@ -52,7 +52,7 @@
           </el-form-item>
         </div>
 
-        <el-form-item label="Подтверждение" prop="agreement">
+        <el-form-item prop="agreement">
           <el-checkbox v-model="form.agreement" name="type">
             Согласен с условиями
           </el-checkbox>

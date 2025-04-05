@@ -9,7 +9,7 @@ export default defineConfig({
   plugins: [
     vue(),
     // не забыть отключить
-    vueDevTools(),
+    // vueDevTools(),
   ],
   resolve: {
     alias: {
