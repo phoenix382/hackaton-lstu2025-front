@@ -20,7 +20,11 @@ export default defineConfig({
     allowedHosts: ['localhost', '127.0.0.1', 'front.root.sx'],
     proxy: {
       '/api': {
-        target: 'https://back.root.sx/api',
+        target: 'https://back.root.sx',
+        changeOrigin: true,
+      },
+      '/ml': {
+        target: 'https://back.root.sx',
         changeOrigin: true,
       }
     }
