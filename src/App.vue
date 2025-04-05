@@ -17,8 +17,9 @@ onMounted(() => {
     <div class="wrapper">
       <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About(restricte)</RouterLink>
+        <RouterLink to="/about">About(restricted)</RouterLink>
         <RouterLink to="/login">Login</RouterLink>
+        <RouterLink to="/register">Register</RouterLink>
       </nav>
     </div>
   </header>
