@@ -1,21 +1,20 @@
 <template>
   <div class="registration-form">
     <el-form ref="registrationForm" :model="form" :rules="rules" label-width="120px">
-      <el-form-item label="Username" prop="username">
+      <el-form-item label="Имя" prop="username">
         <el-input v-model="form.username"></el-input>
       </el-form-item>
       <el-form-item label="Email" prop="email">
         <el-input v-model="form.email"></el-input>
       </el-form-item>
-      <el-form-item label="Password" prop="password">
+      <el-form-item label="Пароль" prop="password">
         <el-input v-model="form.password" type="password"></el-input>
       </el-form-item>
-      <el-form-item label="Confirm Password" prop="confirmPassword">
+      <el-form-item label="Подтверждение" prop="confirmPassword">
         <el-input v-model="form.confirmPassword" type="password"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm('registrationForm')">Register</el-button>
-        <el-button @click="resetForm('registrationForm')">Reset</el-button>
+        <el-button type="primary" @click="submitForm('registrationForm')">Регистрация</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -53,31 +52,31 @@ const authStore = useAuthStore();
 import { ElMessage } from 'element-plus';
 
 const form = ref({
-      username: '',
-      email: '',
-      password: '',
-      confirmPassword: ''
-    });
+  username: '',
+  email: '',
+  password: '',
+  confirmPassword: ''
+});
 
 const rules = {
   username: [
-    { required: true, message: 'Please input username', trigger: 'blur' },
-    { min: 3, max: 15, message: 'Length should be 3 to 15', trigger: 'blur' }
+    { required: true, message: 'Пожалуйста, введите имя пользователя', trigger: 'blur' },
+    { min: 3, max: 15, message: 'Имя пользователя должно содержать от 3 до 15 символов', trigger: 'blur' }
   ],
   email: [
-    { required: true, message: 'Please input email address', trigger: 'blur' },
-    { type: 'email', message: 'Please input correct email address', trigger: ['blur', 'change'] }
+    { required: true, message: 'Пожалуйста, введите почту', trigger: 'blur' },
+    { type: 'email', message: 'Некорректная почта', trigger: 'blur' }
   ],
   password: [
-    { required: true, message: 'Please input password', trigger: 'blur' },
-    { min: 6, message: 'Password should be at least 6 characters', trigger: 'blur' }
+    { required: true, message: 'Пожалуйста, введите пароль', trigger: 'blur' },
+    { min: 8, message: 'Пароль должен содержать не менее 8 символов', trigger: 'blur' }
   ],
   confirmPassword: [
-    { required: true, message: 'Please confirm password', trigger: 'blur' },
+    { required: true, message: 'Пожалуйста, повторите пароль', trigger: 'blur' },
     {
       validator: (rule, value, callback) => {
         if (value !== form.value.password) {
-          callback(new Error('Passwords do not match'));
+          callback(new Error('Пароли не совпадают'));
         } else {
           callback();
         }
@@ -99,32 +98,21 @@ const submitForm = async (formName) => {
         'password': form.value.password,
       });
 
-      // console.log({
-      //   'email': form.value.email,
-      //   'password': form.value.password,
-      // });
-
-      // console.log(form.value.username);
-      // console.log(form.value.email);
-      // console.log(form.value.password);
-
       if (!success) {
-        ElMessage.error('Registration failed. Please try again.');
+        ElMessage.error('Ошибка при регистрации.');
       } else {
-        ElMessage.success('Registration successful!');
+        ElMessage.success('Регистрация прошла успещно!');
       }
-
-      // Here you can add your registration logic, e.g., sending data to the server
     } else {
-      ElMessage.error('Please fill in the form correctly.');
+      ElMessage.error('Проверьте правильность введенных данных.');
       return false;
     }
   });
 };
 
-const resetForm = (formName) => {
-  registrationForm.value.resetFields();
-};
+// const resetForm = (formName) => {
+//   registrationForm.value.resetFields();
+// };
 
 </script>
 

@@ -1,17 +1,7 @@
 <template>
   <header>
-    <!-- <img alt="Vue logo" class="logo" src="@/assets/logo.png" width="80" height="80" /> -->
 
-    <!-- <div class="wrapper">
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About(restricted)</RouterLink>
-        <RouterLink to="/login">Login</RouterLink>
-        <RouterLink to="/register">Register</RouterLink>
-      </nav>
-    </div> -->
-
-
+    <!-- TOP MENU -->
     <el-menu
       ref="mainMenu"
       class="el-menu-header"
@@ -19,34 +9,53 @@
       :ellipsis="false"
       router="true"
     >
+      <!-- LOGO -->
+      <RouterLink class="logo" to="/">
+        <div class="logo-container">
+          <img alt="Vue logo" class="logo" src="@/assets/logo.png" width="60" height="50" />
+          <span class="logo-text">FIT NESS</span>
+        </div>
+      </RouterLink>
+      
+      <!-- CONTENT BUTTONS -->
+      <div class="content-block">
+        <el-menu-item index="/exercises">
+          <span>упражнения</span>
+          <i class="pi pi-angle-down header-arrow"></i>
+        </el-menu-item>
 
-      <el-menu-item index="0">
-        <img alt="Vue logo" class="logo" src="@/assets/logo.png" width="80" height="80" />
-      </el-menu-item>
+        <el-menu-item index="/diet">
+          <span>питание</span>
+          <i class="pi pi-angle-down header-arrow"></i>
+        </el-menu-item>
 
-      <el-menu-item index="/">
-        Home
-      </el-menu-item>
-      <el-menu-item v-if="isLogged" index="">
-        {{ isLogged }}
-      </el-menu-item>
-      <template v-else>
-        <el-menu-item index="/about">
-          About
+        <el-menu-item index="/articles">
+          <span>статьи</span>
+          <i class="pi pi-angle-down header-arrow"></i>
         </el-menu-item>
-        <el-menu-item index="3">
-          <RouterLink to="/login">Login</RouterLink>
+      </div>
+
+      <!-- AUTH BUTTONS -->
+      <div v-if="!isLogged" class="auth-block">
+        <el-menu-item index="/login">
+          Вход
         </el-menu-item>
-        <el-menu-item index="/register">
-          Register
+        <el-menu-item class="register-item" index="/register">
+          <!-- <el-button type="primary" @click="submitForm('registrationForm')">Регистрация</el-button> -->
+          <div class="register-button">
+            <span>Регистрация</span>
+          </div>
         </el-menu-item>
-        
-      </template>
-      <el-menu-item @click="handleLogout" v-if="!isLogged">
-        <template #title>
-          <span>Logout</span>
-        </template>
-      </el-menu-item>
+      </div>
+      <div v-else>
+        <el-menu-item index="">
+          {{ isLogged }}
+        </el-menu-item>
+        <el-menu-item @click="handleLogout" v-if="isLogged">
+            <span>Logout</span>
+        </el-menu-item>
+      </div>
+
     </el-menu>
 
 
@@ -63,6 +72,7 @@
 import { RouterLink, RouterView, useRouter } from 'vue-router'
 import { useAuthStore } from './stores/auth';
 import { onMounted, ref } from 'vue';
+import 'primeicons/primeicons.css'
 
 const authStore = useAuthStore();
 const router = useRouter();
@@ -75,7 +85,6 @@ const isLogged = ref(false);
 onMounted(() => {
   authStore.initializeAuth();
   isLogged.value = authStore.state.isAuthenticated;
-  console.log(isLogged.value)
 });
 
 // const handleSelect = (key, keyPath) => {
@@ -83,14 +92,12 @@ onMounted(() => {
 // }
 
 const handleLogout = () => {
-  console.log(1)
   authStore.logout();
-  console.log(2)
-  router.push('/');
-  console.log(3)
-  console.log(mainMenu.value)
-  mainMenu.value.select(1);
   isLogged.value = false;
+
+  router.push('/').then(() => {
+    window.location.reload(); // Full reload after redirection
+  });
 }
 
 const routes = [
@@ -114,70 +121,114 @@ const routes = [
 
 <style scoped>
 body {
-  background-color: white;
+/*  background-color: #EDEAE5;*/
 }
 
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+
+.content-block {
+  display: flex;
+  align-items: center;
+}
+
+.auth-block {
+  display: flex;
+/*  gap: 1rem;*/
+  align-items: center;
+}
+
+.content-block .el-menu-item {
+  padding-right: 3rem;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-color: black;
+  margin-left: 0.5rem;
+  padding-right: 0.3rem;
+
+  color: #026670;
+  font-family: 'Roboto' !important;
 }
 
 .logo {
-  display: block;
-  margin: 0 auto 2rem;
+  padding: 2px;
+  border-radius: 10px;
 }
 
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
+.logo-container {
+  height: 100%;
 }
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
+.logo-container:hover {
+  filter: brightness(1.2);
+  transition: 0.3s ease;
 }
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
+.logo:hover {
+  background-color: white;
+/*  filter: brightness(0.9);*/
 }
 
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
+.logo-text {
+  white-space: nowrap;
 }
 
-nav a:first-of-type {
-  border: 0;
+.register-item {
+  padding: 0;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+.register-button {
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: 0.2rem;
+  margin-right: 0.2rem;
+  height: 70%;
+  border-radius: 5px;
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
+  background-color: #026670;
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
 }
+
+.register-button span {
+  color: white !important;
+}
+
+.register-button:hover {
+  background-color: #5EC9B1;
+  transition: 0.3s ease;
+}
+
+.el-menu-item {
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.el-menu-item > i.header-arrow {
+
+  color: #9FEDD7;
+/*  scale: 1.3;*/
+/*  width: 0.5rem !important;*/
+/*  height: 0.5rem !important;*/
+  font-size: 1rem !important;
+  margin-left: 0.1rem;
+  margin-top: 0.1rem;
+}
+
+.el-menu-item span {
+  color: #464646;
+}
+
+/*@media (min-width: 1024px) */
+
 
 .el-menu-header {
   display: flex;
