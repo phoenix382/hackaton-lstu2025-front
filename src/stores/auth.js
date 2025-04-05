@@ -34,8 +34,7 @@ export const useAuthStore = () => {
 
   const login = async (credentials) => {
     try {
-      const apiUrl = import.meta.env.VITE_API_URL;
-      const response = await axios.post(apiUrl+'/api/login', credentials);
+      const response = await axios.post('/api/login', credentials);
       const { token } = response.data;
       
       localStorage.setItem('jwt_token', token);
