@@ -13,52 +13,42 @@
 
 
     <el-menu
-      default-active="1"
       ref="mainMenu"
       class="el-menu-header"
       mode="horizontal"
       :ellipsis="false"
-      @select="handleSelect"
+      router="true"
     >
 
       <el-menu-item index="0">
         <img alt="Vue logo" class="logo" src="@/assets/logo.png" width="80" height="80" />
       </el-menu-item>
 
-      <el-menu-item index="1">
-        <RouterLink to="/">Home</RouterLink>
+      <el-menu-item index="/">
+        Home
       </el-menu-item>
-      <el-menu-item index="2">
-        <RouterLink to="/about">About</RouterLink>
+      <el-menu-item v-if="isLogged" index="">
+        {{ isLogged }}
       </el-menu-item>
-      <el-menu-item index="3">
-        <RouterLink to="/login">Login</RouterLink>
-      </el-menu-item>
-      <el-menu-item index="4">
-        <RouterLink to="/register">Register</RouterLink>
-      </el-menu-item>
-      <el-menu-item @click="handleLogout" v-if="isLogged">
+      <template v-else>
+        <el-menu-item index="/about">
+          About
+        </el-menu-item>
+        <el-menu-item index="3">
+          <RouterLink to="/login">Login</RouterLink>
+        </el-menu-item>
+        <el-menu-item index="/register">
+          Register
+        </el-menu-item>
+        
+      </template>
+      <el-menu-item @click="handleLogout" v-if="!isLogged">
         <template #title>
           <span>Logout</span>
         </template>
       </el-menu-item>
     </el-menu>
 
-    <!-- <el-menu-item index="1">Processing Center</el-menu-item>
-    <el-sub-menu index="2">
-      <template #title>Workspace</template>
-      <el-menu-item index="2-1">item one</el-menu-item>
-      <el-menu-item index="2-2">item two</el-menu-item>
-      <el-menu-item index="2-3">item three</el-menu-item>
-      <el-sub-menu index="2-4">
-        <template #title>item four</template>
-        <el-menu-item index="2-4-1">item one</el-menu-item>
-        <el-menu-item index="2-4-2">item two</el-menu-item>
-        <el-menu-item index="2-4-3">item three</el-menu-item>
-      </el-sub-menu>
-    </el-sub-menu>
-    <el-menu-item index="3" disabled>Info</el-menu-item>
-    <el-menu-item index="4">Orders</el-menu-item> -->
 
 <br>
   </header>
@@ -111,14 +101,14 @@ const routes = [
   '/register',
 ]
 
-const handleSelect = (index) => {
-  if (index !== 'logout') {
-    console.log(index, routes[index]);
-    router.push(routes[index]);
-  } else {
-    this.handleLogout();
-  }
-}
+// const handleSelect = (index) => {
+//   if (index !== 'logout') {
+//     console.log(index, routes[index]);
+//     router.push(routes[index]);
+//   } else {
+//     this.handleLogout();
+//   }
+// }
 
 </script>
 
