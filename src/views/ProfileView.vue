@@ -1,6 +1,6 @@
 <template>
   <div class="registration-form">
-      <h1>Вход</h1>
+      <h1>Профиль</h1>
 
       <el-form 
         ref="profileForm" 
@@ -15,17 +15,19 @@
           <el-input v-model="form.username"></el-input>
         </el-form-item>
 
-        <el-form-item label="Возраст" prop="age">
-          <el-input v-model="form.age"></el-input>
-        </el-form-item>
+        <div class="form-row">
+          <el-form-item label="Возраст" prop="age">
+            <el-input v-model="form.age"></el-input>
+          </el-form-item>
 
-        <el-form-item label="Рост" prop="height">
-          <el-input v-model="form.height"></el-input>
-        </el-form-item>
+          <el-form-item label="Рост" prop="height">
+            <el-input v-model="form.height"></el-input>
+          </el-form-item>
 
-        <el-form-item label="Вес" prop="weight">
-          <el-input v-model="form.weight"></el-input>
-        </el-form-item>
+          <el-form-item label="Вес" prop="weight">
+            <el-input v-model="form.weight"></el-input>
+          </el-form-item>
+        </div>
 
         <div class="form-row">
           <el-form-item label="Цель" prop="goal">
@@ -52,7 +54,7 @@
 
         <el-form-item>
           <el-button @click="submitForm('profileForm')" class="wide-button">
-            Войти
+            Сохранить
           </el-button>
         </el-form-item>
       </el-form>
@@ -133,7 +135,6 @@ const submitForm = async (formName) => {
 <style scoped>
 .registration-form {
   max-width: 600px;
-  margin-left: 18em;
   margin-top: 1em;
 
   display: flex;
@@ -173,5 +174,9 @@ const submitForm = async (formName) => {
   display: flex;
   gap: 20px;
   width: 100%;
+}
+
+.form-row .el-form-item {
+  width: 100%; 
 }
 </style>

@@ -10,7 +10,7 @@
       router="true"
     >
       <!-- LOGO -->
-      <RouterLink class="logo" to="/">
+      <RouterLink class="logo" :to="isLogged ? '/main' : '/'">
         <div class="logo-container">
           <img alt="Vue logo" class="logo" src="@/assets/logo.png" width="60" height="50" />
           <span class="logo-text">FIT NESS</span>
@@ -47,8 +47,8 @@
           </div>
         </el-menu-item>
       </div>
-      <div v-else>
-        <el-menu-item index="">
+      <div v-else class="user-block">
+        <el-menu-item index="/profile">
           {{ isLogged }}
         </el-menu-item>
         <el-menu-item @click="handleLogout" v-if="isLogged">
@@ -146,6 +146,11 @@ body {
 .auth-block {
   display: flex;
 /*  gap: 1rem;*/
+  align-items: center;
+}
+
+.user-block {
+  display: flex;
   align-items: center;
 }
 
