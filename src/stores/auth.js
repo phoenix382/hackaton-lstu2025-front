@@ -1,6 +1,6 @@
 import { reactive } from 'vue';
 import axios from 'axios';
-import jwtDecode from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 
 const state = reactive({
   user: null,
