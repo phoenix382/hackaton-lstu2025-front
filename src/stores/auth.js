@@ -30,7 +30,7 @@ export const useAuthStore = () => {
   };
 
   const setAuthHeader = (token) => {
-    api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    api.defaults.headers.common['Authorization'] = `${token}`;
   };
 
   const register = async (credentials) => {
@@ -76,7 +76,7 @@ export const useAuthStore = () => {
     try {
       const response = await api.post(endpoint, data);
     } catch (error) {
-      console.error(error);
+      console.log(error);
       return false;
     }
   }
