@@ -128,7 +128,7 @@ const editPlan = (id) => {
 .plan-list {
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 0.1em;
 }
 
 .plan {
