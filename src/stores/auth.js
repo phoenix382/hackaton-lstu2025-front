@@ -38,6 +38,7 @@ export const useAuthStore = () => {
     try {
       const response = await api.post('/api/register', credentials);
       const { userID,token } = response.data;
+      console.log(response.data);
 
       localStorage.setItem('jwt_token', token);
       setAuthHeader(token);
@@ -59,13 +60,15 @@ export const useAuthStore = () => {
   const login = async (credentials) => {
     try {
       const response = await api.post('/api/login', credentials);
-      const { token } = response.data;
+      const { userID, token } = response.data;
+      console.log(response.data);
       
       localStorage.setItem('jwt_token', token);
       setAuthHeader(token);
       state.token = token;
       state.isAuthenticated = true;
       state.user = jwtDecode(token);
+      state.userId = userID;
       
       return true;
     } catch (error) {
