@@ -418,4 +418,11 @@ box-shadow: 0 0 6px 4px #FCE181;
   box-shadow: 0 0 5px 8px #FEF9C7;
 }
 
+.main-content h1 {
+  font-family: 'Inter';
+  font-size: 36px;
+  font-weight: bold;
+}
+
+
 </style>

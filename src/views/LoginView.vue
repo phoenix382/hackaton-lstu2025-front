@@ -58,6 +58,8 @@ const rules = {
 
 const loginForm = ref(null);
 
+const emit = defineEmits(["login-event"]);
+
 const submitForm = async (formName) => {
   loginForm.value.validate(async (valid) => {
     if (valid) {
@@ -69,6 +71,8 @@ const submitForm = async (formName) => {
         ElMessage.error('Ошибка при входе.');
       } else {
         ElMessage.success('Добро пожаловать!');
+        emit("login-event");
+        router.push({ name: 'main' });
       }
     } else {
       ElMessage.error('Проверьте правильность введенных данных.');

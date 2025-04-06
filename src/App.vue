@@ -8,6 +8,7 @@
       mode="horizontal"
       :ellipsis="false"
       router="true"
+      @login-event="handleLogin"
     >
       <!-- LOGO -->
       <RouterLink class="logo" :to="isLogged ? '/main' : '/'">
@@ -106,6 +107,10 @@ const handleLogout = () => {
   router.push('/').then(() => {
     window.location.reload(); // Full reload after redirection
   });
+}
+
+const handleLogin = () => {
+  isLogged.value = true;
 }
 
 const routes = [
