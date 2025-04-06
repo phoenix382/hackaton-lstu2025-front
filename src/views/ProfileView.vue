@@ -65,6 +65,7 @@
 import { onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { useAuthStore } from '../stores/auth';
+import api from '@/utils/axios';
 
 import { ElMessage } from 'element-plus';
 
@@ -86,7 +87,7 @@ onMounted(async () => {
   console.log(token);
 
   try {
-    const response = await axios.post('/api/GetUserInfo', {token: token});
+    const response = await api.post('/api/GetUserInfo', {token: token});
     const data = response.data;
     console.log(data);
   } catch (error) {
