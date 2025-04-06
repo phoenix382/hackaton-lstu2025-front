@@ -86,7 +86,7 @@ const submitForm = async (formName) => {
 <style scoped>
 .login-form {
   max-width: 600px;
-  margin-left: 18em;
+/*  margin-left: 18em;*/
   margin-top: 1em;
 
   display: flex;
@@ -120,5 +120,11 @@ const submitForm = async (formName) => {
 .wide-button:hover {
   background-color: #F4D35E;
   transition: 0.3s;
+}
+
+@media (max-width: 1024px) {
+  .login-form {
+    max-width: unset;
+  }
 }
 </style>

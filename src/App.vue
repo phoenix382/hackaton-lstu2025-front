@@ -29,11 +29,6 @@
           <span>питание</span>
           <i class="pi pi-angle-down header-arrow"></i>
         </el-menu-item>
-
-        <el-menu-item index="/articles">
-          <span>статьи</span>
-          <i class="pi pi-angle-down header-arrow"></i>
-        </el-menu-item>
       </div>
 
       <!-- AUTH BUTTONS -->
@@ -245,7 +240,6 @@ body {
   color: #464646;
 }
 
-/*@media (min-width: 1024px) */
 
 .footer {
   display: flex;
@@ -286,5 +280,15 @@ body {
 
 .el-menu--horizontal > .el-menu-item:nth-child(1) {
   margin-right: auto;
+}
+
+@media (max-width: 1024px) {
+  .content {
+    place-content: center;
+  }
+
+  .logo-text {
+    display: none;
+  }
 }
 </style>
