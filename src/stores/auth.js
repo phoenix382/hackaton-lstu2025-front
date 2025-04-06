@@ -72,6 +72,15 @@ export const useAuthStore = () => {
     }
   };
 
+  const post = async (api, data) => {
+    try {
+      const response = await api.post(api, data);
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+  }
+
   const logout = () => {
     localStorage.removeItem('jwt_token');
     delete api.defaults.headers.common['Authorization'];
@@ -87,6 +96,6 @@ export const useAuthStore = () => {
     register,
     logout,
     isValidToken,
-    api
+    post
   };
 };
