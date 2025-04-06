@@ -42,7 +42,15 @@
           :key="index"
           class="diet-item"
         >
-          {{ item.прием }}: {{ item.блюдо }} - {{ item['калории и БЖУ'] }}
+          <span>
+            {{ item.прием }}:
+          </span> 
+
+          <span>
+            {{ item.блюдо }} - {{ item['калории и БЖУ'] }}
+          </span>
+
+          <el-divider v-if="index !== items.length - 1" />
         </span>
       </div>
     </div>
@@ -451,9 +459,9 @@ box-shadow: 0 0 6px 4px #FCE181;
 }
 
 .active {
-  background-color: #FCE181;
+  background-color: #026670;
   border: 1px solid #026670;
-  box-shadow: 0 0 5px 8px #FEF9C7;
+  box-shadow: 0 0 5px 8px #9FEDD7;
 }
 
 .main-content h1 {
@@ -473,6 +481,6 @@ box-shadow: 0 0 6px 4px #FCE181;
 
 .diet-stats {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
 }
 </style>
