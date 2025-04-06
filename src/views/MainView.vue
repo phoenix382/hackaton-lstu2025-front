@@ -35,6 +35,9 @@
         <!-- Diet content here -->
       </div>
     </div>
+
+    <div class="stats-container">
+      <img src="@/assets/stats.jpg" width="40%" />
   </div>
 
 </template>
@@ -388,6 +391,12 @@ exerciseChecks.value = Array(
   border: 1px solid lightgray;
   border-radius: 5px;
   min-width: 300px;
+  min-height: 400px;
+
+  padding: 1em;
+
+  display: flex;
+  flex-direction: column;
 /*  flex-grow: 1;*/
 }
 
@@ -395,6 +404,12 @@ exerciseChecks.value = Array(
   border: 1px solid lightgray;
   border-radius: 5px;
   min-width: 300px;
+  min-height: 400px;
+
+  padding: 1em;
+
+  display: flex;
+  flex-direction: column;
 /*  flex-grow: 1;*/
 }
 

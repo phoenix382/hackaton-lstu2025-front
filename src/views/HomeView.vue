@@ -10,8 +10,8 @@
     </div>
 
     <div class="home-app">
-      <img src="@/assets/screenshot.jpeg" width="40%" />
-      <img src="@/assets/screenshot.jpeg" width="40%" />
+      <img src="@/assets/screen1.png" width="40%" />
+      <img src="@/assets/screen2.png" width="40%" />
     </div>
   </div>
 </template>

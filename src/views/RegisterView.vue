@@ -166,6 +166,7 @@ const submitForm = async (formName) => {
         ElMessage.error('Ошибка при регистрации.');
       } else {
         ElMessage.success('Регистрация прошла успещно!');
+        router.push('/main');
       }
     } else {
       ElMessage.error('Проверьте правильность введенных данных.');
