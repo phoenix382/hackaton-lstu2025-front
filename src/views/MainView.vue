@@ -392,6 +392,7 @@ exerciseChecks.value = Array(
 
 .day-content {
   display: flex;
+  justify-content: center;
   gap: 1em;
   flex-grow: 1;
 }
