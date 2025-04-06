@@ -416,7 +416,7 @@ exerciseChecks.value = Array(
   max-width: 45%;
   
   min-height: 400px;
-  max-height: 400px;
+/*  max-height: 400px;*/
 
   padding: 1em;
 
@@ -435,7 +435,7 @@ exerciseChecks.value = Array(
   max-width: 45%;
   
   min-height: 400px;
-  max-height: 400px;
+/*  max-height: 400px;*/
 
   padding: 1em;
 
