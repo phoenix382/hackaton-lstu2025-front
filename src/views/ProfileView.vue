@@ -17,7 +17,7 @@
 
         <div class="form-row">
           <el-form-item label="Возраст" prop="age">
-            <el-input v-model="form.age"></el-input>
+            <el-input v-model="int(form.age)"></el-input>
           </el-form-item>
 
           <el-form-item label="Рост" prop="height">
