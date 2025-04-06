@@ -88,20 +88,20 @@ onMounted(async () => {
 
   try {
     const response = await authStore.post('/api/getUserInfo', {token: token, userID: authStore.state.userId});
-    console.log(response);
+    // console.log(response);
     const data = response.data;
-    console.log(data);
+    // console.log(data);
+    form.value.username = data.name;
+    form.value.age = data.age;
+    form.value.height = data.height;
+    form.value.weight = data.weight;
+    form.value.goal = data.goal;
+    form.value.gender = data.goal;
   } catch (error) {
     console.error(error);
   }
 
 
-  // form.value.username = authStore.user.username;
-  // form.value.age = authStore.user.age;
-  // form.value.height = authStore.user.height;
-  // form.value.weight = authStore.user.weight;
-  // form.value.goal = authStore.user.goal;
-  // form.value.gender = authStore.user.gender;
 });
 
 const rules = {
