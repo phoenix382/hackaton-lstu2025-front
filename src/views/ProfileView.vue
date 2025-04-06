@@ -17,7 +17,7 @@
 
         <div class="form-row">
           <el-form-item label="Возраст" prop="age">
-            <el-input v-model="int(form.age)"></el-input>
+            <el-input v-model="form.age"></el-input>
           </el-form-item>
 
           <el-form-item label="Рост" prop="height">
@@ -111,17 +111,17 @@ const rules = {
   ],
   age: [
     { required: true, message: 'Пожалуйста, введите возраст', trigger: 'blur' },
-    { type: 'number', message: 'Возраст должен быть числом', trigger: 'blur' },
+    // { type: 'number', message: 'Возраст должен быть числом', trigger: 'blur' },
     { min: 1, max: 100, message: 'Возраст должен быть от 1 до 100', trigger: 'blur' }
   ],
   height: [
     { required: true, message: 'Пожалуйста, введите рост', trigger: 'blur' },
-    { type: 'number', message: 'Рост должен быть числом', trigger: 'blur' },
+    // { type: 'number', message: 'Рост должен быть числом', trigger: 'blur' },
     { min: 100, max: 300, message: 'Рост должен быть от 100 до 300', trigger: 'blur' }
   ],
   weight: [
     { required: true, message: 'Пожалуйста, введите вес', trigger: 'blur' },
-    { type: 'number', message: 'Вес должен быть числом', trigger: 'blur' },
+    // { type: 'number', message: 'Вес должен быть числом', trigger: 'blur' },
     { min: 30, max: 300, message: 'Вес должен быть от 30 до 300', trigger: 'blur' }
   ],
   goal: [
