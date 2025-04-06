@@ -37,12 +37,15 @@
         <span class="diet-stats">
           {{ plan[currentDay]['питание']['суточная калорийность, БЖУ'] }}
         </span>
+
+        <el-divider />
+
         <span
           v-for="(item, index) in plan[currentDay]['питание']['приемы пищи']"
           :key="index"
           class="diet-item"
         >
-          <span>
+          <span class="diet-time">
             {{ item.прием }}:
           </span> 
 
@@ -480,7 +483,12 @@ box-shadow: 0 0 6px 4px #FCE181;
 }
 
 .diet-stats {
+  margin-top: 1em;
   font-weight: bold;
   font-size: 16px;
+}
+
+.diet-time {
+  font-weight: bold;
 }
 </style>
