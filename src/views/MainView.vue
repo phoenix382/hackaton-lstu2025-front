@@ -38,7 +38,7 @@
 
     <div class="stats-container">
       <img src="@/assets/stats.jpg" width="40%" />
-    <div>
+    </div>
   </div>
 
 </template>
