@@ -48,11 +48,11 @@
         </el-menu-item>
       </div>
       <div v-else class="user-block">
-        <el-menu-item index="/profile">
+        <el-menu-item class="username" index="/profile">
           {{ isLogged }}
         </el-menu-item>
         <el-menu-item @click="handleLogout" v-if="isLogged">
-            <span>Logout</span>
+            <span>Выйти</span>
         </el-menu-item>
       </div>
 
@@ -252,6 +252,10 @@ body {
 
 .footer span {
   color: #464646;
+}
+
+.username {
+  font-weight: bold;
 }
 
 .content {

@@ -44,7 +44,7 @@ export const useAuthStore = () => {
       state.isAuthenticated = true;
       state.user = jwtDecode(token);
 
-      console.warning("remove in auth.js")
+      console.warn("remove in auth.js")
       console.log(state.user);
       console.log(state.token);
 
