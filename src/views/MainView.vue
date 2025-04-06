@@ -21,6 +21,7 @@
       </div>
     </div>
     <div class="day-content">
+      <!-- excercises -->
       <div class="day-excercises">
         <span>{{ plan[currentDay]['тренировки']['тип тренировки'] }}</span>
         <el-checkbox
@@ -31,8 +32,15 @@
           {{ item.название }} - {{ item['информация о выполнении'] }}
         </el-checkbox>
       </div>
+      <!-- diet -->
       <div class="day-diet">
-        <!-- Diet content here -->
+        <span>{{ plan[currentDay]['питание']['суточная калорийность, БЖУ'] }}</span>
+        <span
+          v-for="(item, index) in plan[currentDay]['питание']['приемы пищи']"
+          :key="index"
+        >
+          {{ item.прием }}: {{ item.блюдо }} - {{ item['калории и БЖУ'] }}
+        </span>
       </div>
     </div>
 
@@ -440,5 +448,8 @@ box-shadow: 0 0 6px 4px #FCE181;
   font-weight: bold;
 }
 
-
+.stats-container {
+  display: flex;
+  justify-content: center;
+}
 </style>
