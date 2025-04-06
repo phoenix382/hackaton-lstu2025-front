@@ -402,6 +402,8 @@ exerciseChecks.value = Array(
   min-width: 300px;
   min-height: 400px;
 
+  max-width: 45%;
+
   padding: 1em;
 
   display: flex;
@@ -414,6 +416,8 @@ exerciseChecks.value = Array(
   border-radius: 5px;
   min-width: 300px;
   min-height: 400px;
+
+  max-width: 45%;
 
   padding: 1em;
 
