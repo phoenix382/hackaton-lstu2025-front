@@ -86,6 +86,7 @@ export const useAuthStore = () => {
     login,
     register,
     logout,
-    isValidToken
+    isValidToken,
+    api
   };
 };
