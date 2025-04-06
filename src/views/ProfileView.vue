@@ -62,7 +62,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { useAuthStore } from '../stores/auth';
 
@@ -79,6 +79,27 @@ const form = ref({
   weight: '',
   goal: '',
   gender: '',
+});
+
+onMounted(async () => {
+  const token = localStorage.getItem('jwt_token');
+  console.log(token);
+
+  try {
+    const response = await api.post('/api/GetUserInfo', {token: token});
+    const data = response.data;
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+
+
+  // form.value.username = authStore.user.username;
+  // form.value.age = authStore.user.age;
+  // form.value.height = authStore.user.height;
+  // form.value.weight = authStore.user.weight;
+  // form.value.goal = authStore.user.goal;
+  // form.value.gender = authStore.user.gender;
 });
 
 const rules = {
@@ -129,27 +150,6 @@ const submitForm = async (formName) => {
     }
   })
 };
-
-onMounted(async () => {
-  const token = localStorage.getItem('jwt_token');
-  console.log(token);
-
-  try {
-    const response = await api.post('/api/GetUserInfo', {token: token});
-    const data = response.data;
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-
-
-  // form.value.username = authStore.user.username;
-  // form.value.age = authStore.user.age;
-  // form.value.height = authStore.user.height;
-  // form.value.weight = authStore.user.weight;
-  // form.value.goal = authStore.user.goal;
-  // form.value.gender = authStore.user.gender;
-});
 
 </script>
 
