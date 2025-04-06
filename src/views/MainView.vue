@@ -34,10 +34,13 @@
       </div>
       <!-- diet -->
       <div class="day-diet">
-        <span>{{ plan[currentDay]['питание']['суточная калорийность, БЖУ'] }}</span>
+        <span class="diet-stats">
+          {{ plan[currentDay]['питание']['суточная калорийность, БЖУ'] }}
+        </span>
         <span
           v-for="(item, index) in plan[currentDay]['питание']['приемы пищи']"
           :key="index"
+          class="diet-item"
         >
           {{ item.прием }}: {{ item.блюдо }} - {{ item['калории и БЖУ'] }}
         </span>
@@ -462,5 +465,14 @@ box-shadow: 0 0 6px 4px #FCE181;
 .stats-container {
   display: flex;
   justify-content: center;
+}
+
+.diet-item {
+  margin-bottom: 0.5em;
+}
+
+.diet-stats {
+  font-weight: bold;
+  font-size: 18px;
 }
 </style>
