@@ -154,10 +154,10 @@ const editPlan = (id) => {
 }
 
 .active {
-/*  background-color: #FCE181;*/
+  background-color: #026670;
   border: 1px solid #026670;
   border-radius: 5px;
-  box-shadow: 0 0 5px 8px #FEF9C7;
+  box-shadow: 0 0 5px 8px #9FEDD7;
 
   color: #026670;
 }

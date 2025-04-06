@@ -400,10 +400,12 @@ exerciseChecks.value = Array(
 .day-excercises {
   border: 1px solid lightgray;
   border-radius: 5px;
-  min-width: 300px;
-  min-height: 400px;
 
+  min-width: 45%;
   max-width: 45%;
+  
+  min-height: 400px;
+  max-height: 400px;
 
   padding: 1em;
 
@@ -418,7 +420,11 @@ exerciseChecks.value = Array(
   min-width: 300px;
   min-height: 400px;
 
+  min-width: 45%;
   max-width: 45%;
+  
+  min-height: 400px;
+  max-height: 400px;
 
   padding: 1em;
 
