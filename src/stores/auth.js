@@ -16,6 +16,7 @@ export const useAuthStore = () => {
       state.token = token;
       state.isAuthenticated = true;
       state.user = jwtDecode(token);
+      state.userId = 0;
       setAuthHeader(token);
     }
   };
@@ -36,13 +37,14 @@ export const useAuthStore = () => {
   const register = async (credentials) => {
     try {
       const response = await api.post('/api/register', credentials);
-      const { token } = response.data;
+      const { userID,token } = response.data;
 
       localStorage.setItem('jwt_token', token);
       setAuthHeader(token);
       state.token = token;
       state.isAuthenticated = true;
       state.user = jwtDecode(token);
+      state.userId = userID;
 
       console.warn("remove in auth.js")
       console.log(state.user);
