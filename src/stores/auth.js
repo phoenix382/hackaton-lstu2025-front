@@ -72,9 +72,9 @@ export const useAuthStore = () => {
     }
   };
 
-  const post = async (api, data) => {
+  const post = async (endpoint, data) => {
     try {
-      const response = await api.post(api, data);
+      const response = await api.post(endpoint, data);
     } catch (error) {
       console.error(error);
       return false;
