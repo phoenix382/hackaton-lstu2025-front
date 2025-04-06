@@ -87,7 +87,7 @@ onMounted(async () => {
   // console.log(token);
 
   try {
-    const response = await authStore.post('/api/GetUserInfo', {token: token, userID: authStore.state.userId});
+    const response = await authStore.post('/api/getUserInfo', {token: token, userID: authStore.state.userId});
     const data = response.data;
     console.log(data);
   } catch (error) {
