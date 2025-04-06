@@ -50,7 +50,7 @@
             {{ item.блюдо }} - {{ item['калории и БЖУ'] }}
           </span>
 
-          <el-divider v-if="index !== items.length - 1" />
+          <el-divider v-if="index !== plan[currentDay]['питание']['приемы пищи'].length - 1" />
         </span>
       </div>
     </div>
