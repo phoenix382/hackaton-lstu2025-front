@@ -84,10 +84,10 @@ const form = ref({
 
 onMounted(async () => {
   const token = localStorage.getItem('jwt_token');
-  console.log(token);
+  // console.log(token);
 
   try {
-    const response = await authStore.post('/api/GetUserInfo', {token: token, userID: authStore.user.id});
+    const response = await authStore.post('/api/GetUserInfo', {token: token, userID: authStore.state.userId});
     const data = response.data;
     console.log(data);
   } catch (error) {
